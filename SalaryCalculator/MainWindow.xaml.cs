@@ -23,10 +23,13 @@ namespace SalaryCalculator
     {
         public MainWindow()
         {
-            string connectionString = "Data source = SalaryDB.db";
-            all_employees all_emps = new (connectionString);
-            List_employees.Items.Add(all_emps.GetEmployee(0));
             InitializeComponent();
+            string connectionString = "Data Source = SalaryDB.db";
+            all_employees all_emps = new(connectionString);
+            foreach (employee emp in all_emps.GetArrayEmployeee())
+            {
+                List_employees.Items.Add(emp.F_name + " " + emp.S_name);
+            }
         }
 
     }
@@ -41,49 +44,59 @@ namespace SalaryCalculator
             F_name = f_name;
             S_name = s_name;
         }
+        //класс сотрудник
     }
 
     public class all_employees
     {
-        static private employee[] data;
+        //класс со всеми сотрудниками в массиве data
+        //с помощью метода ReadEmployeeFromDB
+        //получаем данные из БД и добавляем в data
+        private employee[] data = new employee[3];
 
         public all_employees(string connString)
         {
             ReadEmployeesFromDB(connString);
         }
 
-        static public void ReadEmployeesFromDB(string connString)
+        void ReadEmployeesFromDB(string connString)
         {
-            string sql = "SELECT * FROM employee";
-            using (SqliteConnection conn = new SqliteConnection(connString))
+            string sql = "SELECT * FROM employees";
+            var conn = new SqliteConnection(connString);
+            SqliteCommand cmd = new SqliteCommand(sql, conn);
+            try
             {
-                SqliteCommand cmd = new SqliteCommand(sql, conn);
-                try
+                conn.Open();
+                SqliteDataReader reader = cmd.ExecuteReader();        
+                if (reader.HasRows)
                 {
-                    conn.Open();
-                    using (SqliteDataReader reader = cmd.ExecuteReader())
+                    int i = 0;
+                    while (reader.Read())
                     {
-                        if (reader.HasRows)
-                        {
-                            for (int i = 0; reader.Read(); i++)
-                            {
-                                var f_name = reader.GetString(1);
-                                var s_name = reader.GetString(2);
-                                employee emp = new employee(f_name, s_name);
-                                data[i] = emp;
-                            }
-                        }
+                        string f_name = reader.GetString(1);
+                        string s_name = reader.GetString(2);
+                        employee emp = new employee(f_name, s_name);
+                        data[i] = emp;
+                        i++;
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine(ex.Message);
-                }
+                    MessageBox.Show("reader не считал таблицу/пустой");
+                }    
+            }
+            catch (Exception ex)
+            {
+                    MessageBox.Show(ex.Message);
             }
         }
         public employee GetEmployee(int i)
         {
             return data[i];
+        }
+        public employee[] GetArrayEmployeee()
+        {
+            return data;
         }
     }
  
