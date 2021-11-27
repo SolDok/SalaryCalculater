@@ -25,7 +25,6 @@ F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\runtimes\win-
 F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
-F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.csproj.AssemblyReference.cache
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\MainWindow.g.cs
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\App.g.cs
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator_MarkupCompile.cache
@@ -41,3 +40,8 @@ F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalcula
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\ref\SalaryCalculator.dll
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.pdb
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.genruntimeconfig.cache
+F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\NewEmployeeWindow.g.cs
+F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\NewEmployeeWindow.baml
+F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.csproj.AssemblyReference.cache
+F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AboutEmployeeForm.g.cs
+F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AboutEmployeeForm.baml

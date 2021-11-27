@@ -5,9 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalaryCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ListBox Name = "List_employees">
-            </ListBox>
+        Title="MainWindow" MinHeight="250" MinWidth="600" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="3*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <ListBox Name = "List_employees" SelectionChanged="ListItemSelected" Grid.Row="0" Grid.ColumnSpan="3" Cursor="Hand">
+        </ListBox>
+        <Button Name="Add_employee" Content="Add" Grid.Row="2" Grid.Column="0" MinHeight="50" MinWidth="100" Click="Logic_Click"></Button>
+        <Button Name="Delete_employee" Content="Delete" Grid.Row="2" Grid.Column="1" MinHeight="50" MinWidth="100"></Button>
+        <Button Name="About_employee" Content="More" Grid.Row="2" Grid.Column="2" MinHeight="50" MinWidth="100"></Button>
     </Grid>
+   
 </Window>
