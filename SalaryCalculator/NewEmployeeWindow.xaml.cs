@@ -25,7 +25,8 @@ namespace SalaryCalculator
         }
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            this.result = all_employees.AddNewEmployee("Data Source=SalaryDB.db", this.F_name, this.S_name);
+            //Обработчик для вызова метода добавления сотрудника
+            this.result = all_employees.CreateNewEmployee(MainWindow.connectionString, this.F_name, this.S_name);
             this.DialogResult = true;
         }
         public string F_name
@@ -36,7 +37,7 @@ namespace SalaryCalculator
         {
             get { return s_nameBox.Text; }
         }
-        public int result = 0;
+        private int result = 0;
         public int Result
         {
             get { return result; }

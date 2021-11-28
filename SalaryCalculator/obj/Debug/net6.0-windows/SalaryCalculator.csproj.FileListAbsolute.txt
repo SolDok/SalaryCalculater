@@ -1,4 +1,3 @@
-F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\SalaryDB.db
 F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\SalaryCalculator.exe
 F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\SalaryCalculator.dll.config
 F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\SalaryCalculator.deps.json
@@ -45,3 +44,5 @@ F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\NewEmployeeWi
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.csproj.AssemblyReference.cache
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AboutEmployeeForm.g.cs
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AboutEmployeeForm.baml
+F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AcceptForm.g.cs
+F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AcceptForm.baml
