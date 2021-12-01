@@ -138,6 +138,12 @@ namespace SalaryCalculator
                 }
             }
         }
+        private void LogicClickAboutEmployee(object sender, RoutedEventArgs e)
+        {
+            AboutEmployeeForm aboutForm = new();
+            aboutForm.Show();
+            aboutForm.Owner = this;
+        }
     }
 
 
@@ -238,10 +244,6 @@ namespace SalaryCalculator
                         data[i] = emp;
                         i++;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("reader не считал таблицу/пустой");
                 }
             }
             catch (Exception ex)

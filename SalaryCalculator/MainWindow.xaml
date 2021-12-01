@@ -21,7 +21,7 @@
         </ListBox>
         <Button Name="Add_employee" Content="Add" Grid.Row="2" Grid.Column="0" MinHeight="50" MinWidth="100" Click="LogicClickNewEmployee"></Button>
         <Button Name="Delete_employee" Content="Delete" Grid.Row="2" Grid.Column="1" MinHeight="50" MinWidth="100" Click="LogicClickDeleteEmployee"></Button>
-        <Button Name="About_employee" Content="More" Grid.Row="2" Grid.Column="2" MinHeight="50" MinWidth="100"></Button>
+        <Button Name="About_employee" Content="More" Grid.Row="2" Grid.Column="2" MinHeight="50" MinWidth="100" Click="LogicClickAboutEmployee"></Button>
     </Grid>
    
 </Window>
