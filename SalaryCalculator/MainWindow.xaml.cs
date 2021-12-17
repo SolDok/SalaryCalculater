@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Data.Sqlite;
 
 namespace SalaryCalculator
 {
@@ -140,7 +139,7 @@ namespace SalaryCalculator
         }
         private void LogicClickAboutEmployee(object sender, RoutedEventArgs e)
         {
-            AboutEmployeeForm aboutForm = new();
+            AboutEmployeeForm aboutForm = new(all_emps);
             aboutForm.Show();
             aboutForm.Owner = this;
         }
@@ -292,7 +291,7 @@ namespace SalaryCalculator
         }
         public employee GetEmployee(int i)
         {
-            return data[i];
+            return data[i-1];
         }
         public employee GetLastEmployee()
         {

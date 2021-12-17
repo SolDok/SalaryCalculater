@@ -279,19 +279,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Даниил\\.nuget\\packages\\": {}
+    "C:\\Users\\konon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\labs\\SalaryCalculator\\SalaryCalculator\\SalaryCalculator.csproj",
+      "projectUniqueName": "J:\\labs\\SalaryCalculator\\SalaryCalculator\\SalaryCalculator.csproj",
       "projectName": "SalaryCalculator",
-      "projectPath": "F:\\labs\\SalaryCalculator\\SalaryCalculator\\SalaryCalculator.csproj",
-      "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-      "outputPath": "F:\\labs\\SalaryCalculator\\SalaryCalculator\\obj\\",
+      "projectPath": "J:\\labs\\SalaryCalculator\\SalaryCalculator\\SalaryCalculator.csproj",
+      "packagesPath": "C:\\Users\\konon\\.nuget\\packages\\",
+      "outputPath": "J:\\labs\\SalaryCalculator\\SalaryCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\konon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

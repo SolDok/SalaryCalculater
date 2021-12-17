@@ -19,16 +19,16 @@
             <RowDefinition Height="0,2*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.ColumnSpan="3" Grid.Row="0">Тут должна быть ФИО</TextBlock>
+        <TextBlock x:Name="fullNameBlock" Grid.ColumnSpan="3" Grid.Row="0">Тут должна быть ФИО</TextBlock>
         
-        <TextBlock Grid.Column="0" Grid.Row="1">Выберите диапазон дат лпеоаци </TextBlock>
-        <DatePicker Grid.Column="1" Grid.Row="1"></DatePicker>
-        <DatePicker Grid.Column="2" Grid.Row="1"></DatePicker>
+        <TextBlock Grid.Column="0" Grid.Row="1">Выберите диапазон дат операций</TextBlock>
+        <DatePicker x:Name="datePicker1" Grid.Column="1" Grid.Row="1"></DatePicker>
+        <DatePicker x:Name="datePicker2" Grid.Column="2" Grid.Row="1" SelectedDateChanged="datePicker2_SelectedDate"></DatePicker>
 
-        <ListBox Grid.ColumnSpan="3" Grid.Row="2">Тут вывод операций</ListBox>
+        <ListBox x:Name="ListOfOperations" Grid.ColumnSpan="3" Grid.Row="2">Тут вывод операций</ListBox>
 
-        <Button Content="Добавить операцию" Grid.Column="0" Grid.Row="3"></Button>
+        <Button Content="Добавить операцию" Grid.Column="0" Grid.Row="3" Click="ButtonAddOperation_Click"></Button>
         <Button Content="Удалить операцию" Grid.Column="1" Grid.Row="3"></Button>
-        <Button Content="Вернутся" Grid.Column="2" Grid.Row="3"></Button>
+        <Button Content="Вернутся" Grid.Column="2" Grid.Row="3" Click="ButtonClose_Click"></Button>
     </Grid>
 </Window>

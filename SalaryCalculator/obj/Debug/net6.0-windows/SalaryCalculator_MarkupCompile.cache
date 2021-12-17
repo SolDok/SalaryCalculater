@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\
+J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\
 SalaryCalculator
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-F:\labs\SalaryCalculator\SalaryCalculator\App.xaml
+J:\labs\SalaryCalculator\SalaryCalculator\App.xaml
 4-1684213902
 
-6818569885
-198216864900
+7-1536146743
+198139723153
 AboutEmployeeForm.xaml;AcceptForm.xaml;MainWindow.xaml;NewEmployeeWindow.xaml;
 
 False
