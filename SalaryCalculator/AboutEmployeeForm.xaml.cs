@@ -30,18 +30,20 @@ namespace SalaryCalculator
             this.all_emps = All_emps;
             InitializeComponent();
             fullNameBlock.Text = all_emps.GetEmployee(selectedEmployee).FullName;
-            sqlExpression = $"SELECT * FROM work_operations WHERE emp_id = {selectedEmployee}";
 
 
         }
         //Мне нужны: Индекс из таблицы с главной формы, Объект из all_employee.data
-        private void ShowListOperations (List<String> operations)
+        private void ShowListOperations (List<string> operations)
         {
             ListOfOperations.Items.Clear();
             ListOfOperations.ItemsSource = operations;
         }
         private void datePicker2_SelectedDate(object sender, SelectionChangedEventArgs e)
         {
+            string date1 = datePicker1.Text;
+            string date2 = datePicker2.Text;
+            sqlExpression = $"SELECT * FROM work_operations WHERE (emp_id = {selectedEmployee}) AND (w_date BETWEEN '{date1}' AND '{date2}')";
             Operations op1 = new Operations();
             op1.GetStringsFromDB(MainWindow.connectionString,sqlExpression);
             ShowListOperations(op1.GetListOfOperations());
@@ -49,18 +51,21 @@ namespace SalaryCalculator
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            this.Owner.Show();
         }
         private void ButtonAddOperation_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEmpOperation AddOpsForm = new();
+            AddOpsForm.Show();
+            AddOpsForm.Owner = this;
         }
     }
     class Operations
     {
-
-        List<String> ListEmpOps = new List<String>();
+        //Класс для работы с операциями (рабочеми днями) рабочих
+        List<string> ListEmpOps = new List<string>();
         
-        public List<String> GetListOfOperations()
+        public List<string> GetListOfOperations()
         {
             return ListEmpOps;
         }

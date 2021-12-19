@@ -142,6 +142,7 @@ namespace SalaryCalculator
             AboutEmployeeForm aboutForm = new(all_emps);
             aboutForm.Show();
             aboutForm.Owner = this;
+            this.Hide();
         }
     }
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SalaryCalculator"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="250" MinWidth="600" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition  Height="3*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -19,9 +19,9 @@
         
         <ListBox Name = "List_employees" SelectionChanged="ListItemSelected" Grid.Row="0" Grid.ColumnSpan="3" Cursor="Hand">
         </ListBox>
-        <Button Name="Add_employee" Content="Add" Grid.Row="2" Grid.Column="0" MinHeight="50" MinWidth="100" Click="LogicClickNewEmployee"></Button>
-        <Button Name="Delete_employee" Content="Delete" Grid.Row="2" Grid.Column="1" MinHeight="50" MinWidth="100" Click="LogicClickDeleteEmployee"></Button>
-        <Button Name="About_employee" Content="More" Grid.Row="2" Grid.Column="2" MinHeight="50" MinWidth="100" Click="LogicClickAboutEmployee"></Button>
+        <Button Name="Add_employee" Content="Add" Grid.Row="2" Grid.Column="0" MinHeight="50" MinWidth="100" Click="LogicClickNewEmployee" Margin="10"></Button>
+        <Button Name="Delete_employee" Content="Delete" Grid.Row="2" Grid.Column="1" MinHeight="50" MinWidth="100" Click="LogicClickDeleteEmployee" Margin="10"></Button>
+        <Button Name="About_employee" Content="More" Grid.Row="2" Grid.Column="2" MinHeight="50" MinWidth="100" Click="LogicClickAboutEmployee" Margin="10"></Button>
     </Grid>
    
 </Window>
