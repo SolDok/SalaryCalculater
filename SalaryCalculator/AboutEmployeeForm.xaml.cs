@@ -34,10 +34,15 @@ namespace SalaryCalculator
 
         }
         //Мне нужны: Индекс из таблицы с главной формы, Объект из all_employee.data
-        private void ShowListOperations (List<string> operations)
+        private void ShowListOperations (ObservableCollection<string> operations)
         {
+            //Костыль!
+            //Без ClearValue вовзращает исключение "Операция недопустима, пока используется ItemsSource"
+            //Хороший способ решить эту проблему через привязку данных
+            ListOfOperations.ClearValue(ItemsControl.ItemsSourceProperty);
             ListOfOperations.Items.Clear();
             ListOfOperations.ItemsSource = operations;
+           
         }
         private void datePicker2_SelectedDate(object sender, SelectionChangedEventArgs e)
         {
@@ -63,41 +68,45 @@ namespace SalaryCalculator
     class Operations
     {
         //Класс для работы с операциями (рабочеми днями) рабочих
-        List<string> ListEmpOps = new List<string>();
+        ObservableCollection<string> ListEmpOps = new ObservableCollection<string> ();
         
-        public List<string> GetListOfOperations()
+        public ObservableCollection<string> GetListOfOperations()
         {
             return ListEmpOps;
         }
         public void GetStringsFromDB(string connString,string sqlExpression)
         {
-            //метод получения записей из 
-            var conn = new SqliteConnection(connString);
-            SqliteCommand cmd = new SqliteCommand(sqlExpression, conn);
-            try
-            {
+            using (SqliteConnection conn = new SqliteConnection(connString)) {
+                //метод получения записей из 
                 conn.Open();
-                SqliteDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                using (SqliteCommand cmd = new SqliteCommand(sqlExpression, conn))
                 {
-                    while (reader.Read())
+                    try
                     {
-                        string op_id = reader.GetString(0);
-                        string op_title = reader.GetString(1);
-                        string op_date = reader.GetString(2);
-                        string op_time = reader.GetString(3);
-                        string op_rate = reader.GetString(4);
-                        string op_summ = reader.GetString(5);
+                        
+                        SqliteDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                string op_id = reader.GetString(0);
+                                string op_title = reader.GetString(1);
+                                string op_date = reader.GetString(2);
+                                string op_time = reader.GetString(3);
+                                string op_rate = reader.GetString(4);
+                                string op_summ = reader.GetString(5);
 
-                        string operation = $"id: {op_id} Title: {op_title} Date: {op_date} Rate: {op_rate} Sum: {op_summ}";  
-                        ListEmpOps.Add(operation);
+                                string operation = $"id: {op_id} Title: {op_title} Date: {op_date} Rate: {op_rate} Sum: {op_summ}";
+                                ListEmpOps.Add(operation);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message + " Exception from reader";
+                        MessageBox.Show(message);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                string message = ex.Message + " Exception from reader";
-                MessageBox.Show(message);
             }
         }
     }
