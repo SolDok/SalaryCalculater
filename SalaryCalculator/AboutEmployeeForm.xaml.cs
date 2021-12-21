@@ -49,8 +49,8 @@ namespace SalaryCalculator
             string date2 = datePicker2.Text;
             sqlExpression = $"SELECT * FROM work_operations WHERE (emp_id = {selectedEmployee}) AND (w_date BETWEEN '{date1}' AND '{date2}')";
             Operations op1 = new Operations();
-            op1.GetStringsFromDB(MainWindow.connectionString,sqlExpression);
-            ShowListOperations(op1.GetListOfOperations());
+            op1.ReadStringsFromDB(MainWindow.connectionString,sqlExpression);
+            ShowListOperations(op1.ReadListOfOperations());
         }
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
@@ -60,7 +60,17 @@ namespace SalaryCalculator
         private void ButtonAddOperation_Click(object sender, RoutedEventArgs e)
         {
             AddOpsForm addOpsForm = new AddOpsForm();
-            addOpsForm.ShowDialog();
+            if (addOpsForm.ShowDialog() == true)
+            {
+                if (addOpsForm.Result == 1)
+                {
+                    MessageBox.Show("Операция добавлена!");
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при добавлении");
+                }
+            }
         }
     }
     class Operations
@@ -68,11 +78,11 @@ namespace SalaryCalculator
         //Класс для работы с операциями (рабочеми днями) рабочих
         ObservableCollection<string> ListEmpOps = new ObservableCollection<string> ();
         
-        public ObservableCollection<string> GetListOfOperations()
+        public ObservableCollection<string> ReadListOfOperations()
         {
             return ListEmpOps;
         }
-        public void GetStringsFromDB(string connString,string sqlExpression)
+        public void ReadStringsFromDB(string connString,string sqlExpression)
         {
             using (SqliteConnection conn = new SqliteConnection(connString)) {
                 //метод получения записей из БД
@@ -106,6 +116,25 @@ namespace SalaryCalculator
                     }
                 }
             }
+        }
+        static public int InsertEmployeeOperation (string connString, string op_title, string op_date, double op_hours, double op_rate, double op_summ,int emp_id)
+        {
+            //Метод добавления операций в БД
+            string sqlExpression = $"INSERT INTO work_operations (w_title, w_date, w_hours, w_rate, w_summ, emp_id) VALUES ('{op_title}','{op_date}', {op_hours}, {op_rate}, {op_summ}, {emp_id});";
+            var conn = new SqliteConnection(connString);
+            SqliteCommand cmd = new SqliteCommand(sqlExpression, conn);
+            int NumberOfModified = 0;
+            try
+            {
+                conn.Open();
+                NumberOfModified = (int)cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message + "Exception from InsertEmployeeOperation";
+                MessageBox.Show(message);
+            }
+            return NumberOfModified;
         }
     }
 }
