@@ -33,7 +33,6 @@ namespace SalaryCalculator
 
 
         }
-        //Мне нужны: Индекс из таблицы с главной формы, Объект из all_employee.data
         private void ShowListOperations (ObservableCollection<string> operations)
         {
             //Костыль!
@@ -60,9 +59,8 @@ namespace SalaryCalculator
         }
         private void ButtonAddOperation_Click(object sender, RoutedEventArgs e)
         {
-            AddEmpOperation AddOpsForm = new();
-            AddOpsForm.Show();
-            AddOpsForm.Owner = this;
+            AddOpsForm addOpsForm = new AddOpsForm();
+            addOpsForm.ShowDialog();
         }
     }
     class Operations
@@ -77,7 +75,7 @@ namespace SalaryCalculator
         public void GetStringsFromDB(string connString,string sqlExpression)
         {
             using (SqliteConnection conn = new SqliteConnection(connString)) {
-                //метод получения записей из 
+                //метод получения записей из БД
                 conn.Open();
                 using (SqliteCommand cmd = new SqliteCommand(sqlExpression, conn))
                 {

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SalaryCalculator
 {
     /// <summary>
-    /// Логика взаимодействия для AddEmpOperation.xaml
+    /// Логика взаимодействия для AddOpsForm.xaml
     /// </summary>
-    public partial class AddEmpOperation : Window
+    public partial class AddOpsForm : Window
     {
-        public AddEmpOperation()
+        public AddOpsForm()
         {
             InitializeComponent();
         }

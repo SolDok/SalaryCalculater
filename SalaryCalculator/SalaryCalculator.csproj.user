@@ -13,7 +13,7 @@
     <Compile Update="AcceptForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddEmpOperation.xaml.cs">
+    <Compile Update="AddOpsForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="NewEmployeeWindow.xaml.cs">
@@ -27,7 +27,7 @@
     <Page Update="AcceptForm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="AddEmpOperation.xaml">
+    <Page Update="AddOpsForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

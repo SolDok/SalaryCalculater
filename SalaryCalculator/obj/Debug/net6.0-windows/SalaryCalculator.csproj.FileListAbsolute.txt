@@ -96,5 +96,5 @@ J:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\runtimes\win-
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.csproj.CopyComplete
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.dll
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.genruntimeconfig.cache
-J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AddEmpOperation.g.cs
-J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AddEmpOperation.baml
+J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AddOpsForm.g.cs
+J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AddOpsForm.baml
