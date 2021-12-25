@@ -24,8 +24,17 @@
         <TextBlock Grid.Column="0" Grid.Row="1">Выберите диапазон дат операций</TextBlock>
         <DatePicker x:Name="datePicker1" Grid.Column="1" Grid.Row="1" SelectedDateFormat="Short"></DatePicker>
         <DatePicker x:Name="datePicker2" Grid.Column="2" Grid.Row="1" SelectedDateChanged="datePicker2_SelectedDate"></DatePicker>
-
-        <ListBox x:Name="ListOfOperations" Grid.ColumnSpan="3" Grid.Row="2" >Тут вывод операций</ListBox>
+        
+        <DataGrid x:Name="operationsGrid" AutoGenerateColumns="False" IsReadOnly="True"  Grid.ColumnSpan="3" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="id"                 Binding="{Binding Path=op_id}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Название"           Binding="{Binding Path=op_title}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Дата"               Binding="{Binding Path=op_date}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Продолжительность"  Binding="{Binding Path=op_hours}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Ставка"             Binding="{Binding Path=op_rate}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Сумма"              Binding="{Binding Path=op_sum}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Button Content="Добавить операцию" Grid.Column="0" Grid.Row="3" Click="ButtonAddOperation_Click" Margin="10"></Button>
         <Button Content="Удалить операцию" Grid.Column="1" Grid.Row="3" Margin="10"></Button>

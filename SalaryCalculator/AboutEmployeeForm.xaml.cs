@@ -33,15 +33,9 @@ namespace SalaryCalculator
 
 
         }
-        private void ShowListOperations (ObservableCollection<string> operations)
+        private void ShowListOperations (ObservableCollection<Operation> operations)
         {
-            //Костыль!
-            //Без ClearValue вовзращает исключение "Операция недопустима, пока используется ItemsSource"
-            //Хороший способ решить эту проблему через привязку данных
-            ListOfOperations.ClearValue(ItemsControl.ItemsSourceProperty);
-            ListOfOperations.Items.Clear();
-            ListOfOperations.ItemsSource = operations;
-           
+            operationsGrid.ItemsSource = operations;
         }
         private void datePicker2_SelectedDate(object sender, SelectionChangedEventArgs e)
         {
@@ -60,25 +54,32 @@ namespace SalaryCalculator
         private void ButtonAddOperation_Click(object sender, RoutedEventArgs e)
         {
             AddOpsForm addOpsForm = new AddOpsForm();
-            if (addOpsForm.ShowDialog() == true)
-            {
-                if (addOpsForm.Result == 1)
-                {
-                    MessageBox.Show("Операция добавлена!");
-                }
-                else
-                {
-                    MessageBox.Show("Ошибка при добавлении");
-                }
-            }
         }
+    }
+    internal class Operation
+    {
+        public Operation (int Op_id, string Op_title, string Op_date, double Op_time, double Op_rate, double Op_summ)
+        {
+            this.op_id = Op_id;
+            this.op_title = Op_title;
+            this.op_date = Op_date;
+            this.op_hours = Op_time;
+            this.op_rate = Op_rate;
+            this.op_sum = Op_summ;
+        }
+        public int op_id { get; set; }
+        public string op_title { get; set; } 
+        public string op_date { get; set; }
+        public double op_hours { get; set; }
+        public double op_rate { get; set; }
+        public double op_sum { get; set; }
     }
     class Operations
     {
         //Класс для работы с операциями (рабочеми днями) рабочих
-        ObservableCollection<string> ListEmpOps = new ObservableCollection<string> ();
+        ObservableCollection<Operation> ListEmpOps = new ObservableCollection<Operation> ();
         
-        public ObservableCollection<string> ReadListOfOperations()
+        public ObservableCollection<Operation> ReadListOfOperations()
         {
             return ListEmpOps;
         }
@@ -97,15 +98,14 @@ namespace SalaryCalculator
                         {
                             while (reader.Read())
                             {
-                                string op_id = reader.GetString(0);
+                                int op_id = reader.GetInt32(0);
                                 string op_title = reader.GetString(1);
                                 string op_date = reader.GetString(2);
-                                string op_time = reader.GetString(3);
-                                string op_rate = reader.GetString(4);
-                                string op_summ = reader.GetString(5);
+                                double op_time = reader.GetDouble(3);
+                                double op_rate = reader.GetDouble(4);
+                                double op_summ = reader.GetDouble(5);
 
-                                string operation = $"id: {op_id} Title: {op_title} Date: {op_date} Rate: {op_rate} Sum: {op_summ}";
-                                ListEmpOps.Add(operation);
+                                ListEmpOps.Add(new Operation(op_id, op_title, op_date, op_time, op_rate, op_summ));
                             }
                         }
                     }

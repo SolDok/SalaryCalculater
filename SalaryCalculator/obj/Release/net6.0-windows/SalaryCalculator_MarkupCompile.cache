@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 J:\labs\SalaryCalculator\SalaryCalculator\App.xaml
-4-1684213902
+5838709557
 
-6818569885
+81849915609
 198139723153
-AboutEmployeeForm.xaml;AcceptForm.xaml;MainWindow.xaml;NewEmployeeWindow.xaml;
+AboutEmployeeForm.xaml;AcceptForm.xaml;AddOpsForm.xaml;MainWindow.xaml;NewEmployeeWindow.xaml;
 
-True
+False
 

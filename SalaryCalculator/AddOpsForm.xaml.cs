@@ -19,9 +19,12 @@ namespace SalaryCalculator
     /// </summary>
     public partial class AddOpsForm : Window
     {
+        Operation op;
         public AddOpsForm()
         {
             InitializeComponent();
+            op = new Operation(0,"","",0,0,0);
+            this.DataContext = op;
         }
 
         int result = 0;
@@ -45,11 +48,9 @@ namespace SalaryCalculator
         {
             get { return double.Parse(TextBox_OpSumm.Text); }
         }
-        public int Result { get { return result; } }
         private void AcceptClickDelete(object sender, RoutedEventArgs e)
         {
-            //Проблема с вещественными, Parse() пропускает только через запятую, в этом случае в sqlExperssion возникает баг
-            this.result = Operations.InsertEmployeeOperation(MainWindow.connectionString, op_Title, op_Date, op_Hours, op_Rate, op_Summ, MainWindow.EmployeeIndex);
+            Operations.InsertEmployeeOperation(MainWindow.connectionString, op_Title, op_Date, op_Hours, op_Rate, op_Summ, MainWindow.EmployeeIndex);
             this.DialogResult = true;
         }
     }
