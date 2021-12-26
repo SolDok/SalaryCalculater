@@ -25,16 +25,8 @@ namespace SalaryCalculator
         }
         private void AcceptClickDelete (object sender, RoutedEventArgs e)
         {
-            //Обработчик для вызова метода добавления сотрудника
-            //index - выбранный элемент на MainWindow
-            this.result = all_employees.DeleteEmployeeFromDB(MainWindow.connectionString, MainWindow.EmployeeIndex);
+            //this.result = all_employees.DeleteEmployeeFromDB(MainWindow.connectionString, MainWindow.EmployeeIndex);
             this.DialogResult = true;
-        }
-        private int result = 0;
-        public int DeleteResult
-        {
-            get { return result; }
-            set { result = value; }
         }
     }
 }

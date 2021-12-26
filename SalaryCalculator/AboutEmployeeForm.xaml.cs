@@ -33,9 +33,11 @@ namespace SalaryCalculator
 
 
         }
-        private void ShowListOperations (ObservableCollection<Operation> operations)
+        private void UpdateListOperations (ObservableCollection<Operation> operations)
         {
+            operationsGrid.ClearValue(ItemsControl.ItemsSourceProperty);
             operationsGrid.ItemsSource = operations;
+            operationsGrid.Items.Refresh();
         }
         private void datePicker2_SelectedDate(object sender, SelectionChangedEventArgs e)
         {
@@ -44,28 +46,41 @@ namespace SalaryCalculator
             sqlExpression = $"SELECT * FROM work_operations WHERE (emp_id = {selectedEmployee}) AND (w_date BETWEEN '{date1}' AND '{date2}')";
             Operations op1 = new Operations();
             op1.ReadStringsFromDB(MainWindow.connectionString,sqlExpression);
-            ShowListOperations(op1.ReadListOfOperations());
+            UpdateListOperations(op1.ReadListOfOperations());
+        }
+        private void ButtonAddOperation_Click(object sender, RoutedEventArgs e)
+        {
+            AddOpsForm addOpsForm = new AddOpsForm();
+            addOpsForm.Owner = this;
+            addOpsForm.ShowDialog();
+        }
+        private void ButtonDeleteOperation_Click(object sender, RoutedEventArgs e)
+        {
+            object obj = operationsGrid.SelectedItem;
+            Operation? SelectedOperation = (Operation)obj;
+            AcceptForm deleteAccept = new AcceptForm();
+            if (deleteAccept.ShowDialog() == true)
+            {
+                Operations.DeleteFromDB(MainWindow.connectionString,"work_operations",SelectedOperation.op_id);
+            }
         }
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
             this.Owner.Show();
         }
-        private void ButtonAddOperation_Click(object sender, RoutedEventArgs e)
-        {
-            AddOpsForm addOpsForm = new AddOpsForm();
-        }
+        
     }
     internal class Operation
     {
-        public Operation (int Op_id, string Op_title, string Op_date, double Op_time, double Op_rate, double Op_summ)
+        public Operation (int Op_id, string Op_title, string Op_date, double Op_time, double Op_rate, double Op_sum)
         {
             this.op_id = Op_id;
             this.op_title = Op_title;
             this.op_date = Op_date;
             this.op_hours = Op_time;
             this.op_rate = Op_rate;
-            this.op_sum = Op_summ;
+            this.op_sum = Op_sum;
         }
         public int op_id { get; set; }
         public string op_title { get; set; } 
@@ -73,6 +88,7 @@ namespace SalaryCalculator
         public double op_hours { get; set; }
         public double op_rate { get; set; }
         public double op_sum { get; set; }
+        
     }
     class Operations
     {
@@ -105,7 +121,7 @@ namespace SalaryCalculator
                                 double op_rate = reader.GetDouble(4);
                                 double op_summ = reader.GetDouble(5);
 
-                                ListEmpOps.Add(new Operation(op_id, op_title, op_date, op_time, op_rate, op_summ));
+                                ListEmpOps.Add(new Operation(op_id, op_title, op_date, op_time, op_rate,op_summ));
                             }
                         }
                     }
@@ -132,6 +148,24 @@ namespace SalaryCalculator
             catch (Exception ex)
             {
                 string message = ex.Message + "Exception from InsertEmployeeOperation";
+                MessageBox.Show(message);
+            }
+            return NumberOfModified;
+        }
+        static internal int DeleteFromDB(string connectionString,string tableName, int id)
+        {
+            string sqlExpression = $"DELETE FROM {tableName} WHERE id = {id}";
+            SqliteConnection conn = new SqliteConnection(connectionString);
+            SqliteCommand cmd = new SqliteCommand(sqlExpression, conn);
+            int NumberOfModified = 0;
+            try
+            {
+                conn.Open();
+                NumberOfModified = (int)cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message + " From DeleteEmployeeFromDB";
                 MessageBox.Show(message);
             }
             return NumberOfModified;

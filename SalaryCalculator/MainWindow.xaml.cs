@@ -91,6 +91,8 @@ namespace SalaryCalculator
                     int ListSelectedIndex = List_employees.SelectedIndex;
                     MainWindow.EmployeeIndex = all_employees.SearchEmployee(ListSelectedValue, all_emps.GetArrayEmployeee());
                     MainWindow.ListBoxIndex = ListSelectedIndex;
+                    About_employee.IsEnabled = true;
+                    Delete_employee.IsEnabled = true;
                 }
             }
             catch (Exception ex)
@@ -121,20 +123,12 @@ namespace SalaryCalculator
         }
         private void LogicClickDeleteEmployee (object sender, RoutedEventArgs e)
         {
-            //Идея, попробовать реализвоать LogicClick'и с помощью дженериков
             AcceptForm acceptForm = new();
 
             if (acceptForm.ShowDialog() == true)
             {
-                if (acceptForm.DeleteResult == 1)
-                {
-                    MessageBox.Show("Сотрудник был удалён");
-                    RemoveElementListBox(MainWindow.ListBoxIndex);
-                }
-                else
-                {
-                    MessageBox.Show("Ошибка при удалении");
-                }
+                int result = all_employees.DeleteEmployeeFromDB(MainWindow.connectionString, EmployeeIndex);
+                RemoveElementListBox(MainWindow.ListBoxIndex);
             }
         }
         private void LogicClickAboutEmployee(object sender, RoutedEventArgs e)
@@ -171,8 +165,6 @@ namespace SalaryCalculator
     {
         //главный класс программы
         //класс со всеми сотрудниками в массиве data
-        //с помощью метода ReadEmployeeFromDB
-        //получаем данные из БД и добавляем в data
         private employee[] data;
 
         public all_employees(string connString)

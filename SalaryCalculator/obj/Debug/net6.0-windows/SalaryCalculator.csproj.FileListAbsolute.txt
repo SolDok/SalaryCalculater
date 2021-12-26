@@ -47,7 +47,6 @@ F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AboutEmployee
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AcceptForm.g.cs
 F:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AcceptForm.baml
 F:\labs\SalaryCalculator\SalaryCalculator\bin\Debug\net6.0-windows\SalaryDB.db
-J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\SalaryCalculator.csproj.AssemblyReference.cache
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AboutEmployeeForm.g.cs
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\AcceptForm.g.cs
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Debug\net6.0-windows\MainWindow.g.cs

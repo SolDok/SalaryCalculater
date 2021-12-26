@@ -37,7 +37,7 @@
         </DataGrid>
 
         <Button Content="Добавить операцию" Grid.Column="0" Grid.Row="3" Click="ButtonAddOperation_Click" Margin="10"></Button>
-        <Button Content="Удалить операцию" Grid.Column="1" Grid.Row="3" Margin="10"></Button>
+        <Button Content="Удалить операцию" Grid.Column="1" Grid.Row="3" Margin="10" Click="ButtonDeleteOperation_Click"></Button>
         <Button Content="Вернутся" Grid.Column="2" Grid.Row="3" Click="ButtonClose_Click" Margin="10"></Button>
     </Grid>
 </Window>

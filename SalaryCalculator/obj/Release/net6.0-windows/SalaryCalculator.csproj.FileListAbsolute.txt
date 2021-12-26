@@ -48,3 +48,4 @@ J:\labs\SalaryCalculator\SalaryCalculator\obj\Release\net6.0-windows\SalaryCalcu
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Release\net6.0-windows\ref\SalaryCalculator.dll
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Release\net6.0-windows\SalaryCalculator.pdb
 J:\labs\SalaryCalculator\SalaryCalculator\obj\Release\net6.0-windows\SalaryCalculator.genruntimeconfig.cache
+J:\labs\SalaryCalculator\SalaryCalculator\obj\Release\net6.0-windows\SalaryCalculator.csproj.AssemblyReference.cache
